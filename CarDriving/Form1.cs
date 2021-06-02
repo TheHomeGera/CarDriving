@@ -7,14 +7,10 @@ namespace CarDriving
     public partial class Form1 : Form
     {
         public static Random Rand = new Random();
-
         private readonly ViewGame viewGame;
-
         public static int CountWall;
-
         public static int Maxx;
         public static int Maxy;
-
         public static string[] map = {
             "********************",
             "*....***.....*.....*",
@@ -37,6 +33,7 @@ namespace CarDriving
             "*..*..**.....*....**",
             "********************"
         };
+
         public Form1()
         {
             InitializeComponent();
