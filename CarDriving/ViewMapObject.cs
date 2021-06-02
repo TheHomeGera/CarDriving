@@ -16,22 +16,15 @@ namespace CarDriving
             picBox.Width = Model.Width;
         }
 
-
         public void Subscribe()
         {
             Model.PositionChanged += OnPositionChanged;
             OnPositionChanged(this, new EventArgs());
         }
 
-        private void OnPositionChanged(object sender, EventArgs e)
-        {
-            Show();
-        }
+        private void OnPositionChanged(object sender, EventArgs e) => Show();
 
-        private void Show()
-        {
-            SetImage(Model.Position);
-        }
+        private void Show() => SetImage(Model.Position);
 
         private delegate void SetImageCallback(Point p);
 
@@ -52,9 +45,6 @@ namespace CarDriving
 
         protected virtual void ChangePicture() { }
 
-        protected override void Update()
-        {
-            Show();
-        }
+        protected override void Update() => Show();
     }
 }

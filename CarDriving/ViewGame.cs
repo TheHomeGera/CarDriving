@@ -8,48 +8,28 @@ namespace CarDriving
 {
     internal class ViewGame : View<Game>
     {
-
         private ViewCar viewCar;
-
         private List<ViewCheckpoint> viewCheckpoint;
-
         private List<ViewWall> viewWall = new List<ViewWall>();
-
-
         private readonly CarController controller = new CarController();
-
         private readonly Panel panelMap;
 
-
-        public ViewGame(Panel panelMap)
-        {
-            this.panelMap = panelMap;
-        }
-
+        public ViewGame(Panel panelMap) => this.panelMap = panelMap;
 
         private event KeyEventHandler KeyPress;
 
-        public virtual void OnKeyPress(Keys key)
-        {
-            KeyPress?.Invoke(viewCar.Model, new KeyEventArgs(key));
-        }
-
+        public virtual void OnKeyPress(Keys key) => KeyPress?.Invoke(viewCar.Model, new KeyEventArgs(key));
+        
         public void SubscribeKeyPress()
         {
             KeyPress += controller.OnKeyPress;
             controller.OnKeyPress(viewCar, new KeyEventArgs(Keys.Right));
         }
 
-        public void UnsubscribeKeyPress()
-        {
-            KeyPress -= controller.OnKeyPress;
-        }
+        public void UnsubscribeKeyPress() => KeyPress -= controller.OnKeyPress;
 
-        protected override void Update()
-        {
-            Refresh();
-        }
-
+        protected override void Update() => Refresh();
+        
         private void Refresh()
         {
             viewWall = new List<ViewWall>();

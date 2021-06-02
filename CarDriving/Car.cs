@@ -8,7 +8,7 @@ namespace CarDriving
     {
         public override void Run()
         {
-            while (Game.ScoreCheckpoint < 15)
+            while (Game.ScoreCheckpoint < 10)
             {
                 OnCheck();
                 Move();
@@ -22,14 +22,6 @@ namespace CarDriving
         public Car(Point position) : base(position)
         {
             delta = 4;
-        }
-
-
-        public override void OnCheckPosition(object sender, EventArgs e)
-        {
-            if (!(e is PositionChangedEventArgs positionArgs))
-                return;
-            if (!CollidesWith(positionArgs.NewRectangle)) return;
         }
     }
 }

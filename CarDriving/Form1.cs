@@ -6,35 +6,35 @@ namespace CarDriving
 {
     public partial class Form1 : Form
     {
-        public static Random rand = new Random();
+        public static Random Rand = new Random();
 
-        private ViewGame viewGame;
+        private readonly ViewGame viewGame;
 
-        public static int countWall;
+        public static int CountWall;
 
-        public static int MAXX;
-        public static int MAXY;
+        public static int Maxx;
+        public static int Maxy;
 
         public static string[] map = {
             "********************",
-            "*....***...........*",
+            "*....***.....*.....*",
             "*.**.....*********.*",
-            "*.*..**.....*......*",
+            "*.*..***....*......*",
             "*.*.****..*...***..*",
             "*.*......***.......*",
-            "*.*.*..*.....*..*.**",
-            "*.*.*..*..*..*.**..*",
-            "*.*.*..*******..**.*",
-            "*.*.*.....****..*..*",
-            "*.*.*.......***.*.**",
-            "*.*.*.***.*.....*..*",
-            "*.*.*...*.*..**.**.*",
-            "*.*.*****.*.*****..*",
-            "*......*..*..***.*.*",
-            "*....*.*..**...**..*",
-            "*...*...*.*..*..*.**",
-            "*.*.*.....*..*..*..*",
-            "*..*...*..*..*....**",
+            "*.*.**.**....*..*.**",
+            "*...*..*..*..*.**..*",
+            "**..*..***..**..**.*",
+            "**.**.*...****..*..*",
+            "*..**...*...***.*.**",
+            "*.*...***.*.....*..*",
+            "*.*.*...*.*..*..**.*",
+            "*.*.*****.*.*..**..*",
+            "*......**.*..*****.*",
+            "*.*..*.*..**...**..*",
+            "*...*..*.**..*..*.**",
+            "*.*.*.....*.***.*..*",
+            "*..*..**.....*....**",
             "********************"
         };
         public Form1()
@@ -42,11 +42,11 @@ namespace CarDriving
             InitializeComponent();
             Size = new Size(p_Map.Width+23, p_Map.Height+45);
             Text = "CarDriving";
-            MAXX = p_Map.Width-150;
-            MAXY = p_Map.Height;
+            Maxx = p_Map.Width-150;
+            Maxy = p_Map.Height;
             foreach (var t in map)
                 for (var j = 0; j < map[0].Length; j++)
-                    countWall += t[j] == '*' ? 1 : 0;
+                    CountWall += t[j] == '*' ? 1 : 0;
             var game = new Game();
             viewGame = new ViewGame(p_Map);
             viewGame.SubscribeKeyPress();

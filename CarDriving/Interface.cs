@@ -22,13 +22,9 @@ namespace CarDriving
             this.map = map;
             CreateScore();
             CreateTimer();
-            timer = new Timer
-            {
-                Interval = 200,
-            };
+            timer = new Timer {Interval = 200};
             timer.Tick += Change;
             timer.Start();
-
         }
 
         protected void CreateScore()
@@ -53,22 +49,22 @@ namespace CarDriving
             map.Controls.Add(timerLabel);
         }
 
-        private double tickS = 0;
-        public static string time;
+        private double tickS;
+        public static string Time;
         private void Change(object obj, EventArgs e)
         {
             tickS += 0.2;
             var span = TimeSpan.FromMinutes(tickS);
-            time = span.ToString(@"hh\:mm");
-            if (Game.ScoreCheckpoint < 15)
+            Time = span.ToString(@"hh\:mm");
+            if (Game.ScoreCheckpoint < 10)
             {
-                label.Text = @"Чекпоинты: " + Game.ScoreCheckpoint + @"/15";
-                timerLabel.Text = time;
+                label.Text = @"Чекпоинты: " + Game.ScoreCheckpoint + @"/10";
+                timerLabel.Text = Time;
             }
             else
             {
                 timer.Stop();
-                label.Text = @"Чекпоинты: " + Game.ScoreCheckpoint + @"/15";
+                label.Text = @"Чекпоинты: " + Game.ScoreCheckpoint + @"/10";
                 _ = new Form2();
             }
         }
@@ -89,7 +85,7 @@ namespace CarDriving
             };
             var timerlabel = new Label
             {
-                Text = "Время: " + Interface.time ,
+                Text = "Время: " + Interface.Time ,
                 Location = new Point(0, 40),
                 Font = new Font("Times New Roman", 15),
                 Size = new Size(2000, 30)

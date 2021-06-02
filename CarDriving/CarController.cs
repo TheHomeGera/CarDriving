@@ -10,22 +10,22 @@ namespace CarDriving
             if (!(sender is Car car)) return;
             switch (e.KeyData)
             {
-                case Keys.Up:
+                case Keys.W:
                 {
                     car.IdentifyDirection(Direction.Up);
                     break;
                 }
-                case Keys.Down:
+                case Keys.S:
                 {
                     car.IdentifyDirection(Direction.Down);
                     break;
                 }
-                case Keys.Left:
+                case Keys.A:
                 {
                     car.IdentifyDirection(Direction.Left);
                     break;
                 }
-                case Keys.Right:
+                case Keys.D:
                 {
                     car.IdentifyDirection(Direction.Right);
                     break;

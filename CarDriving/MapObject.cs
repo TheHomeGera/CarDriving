@@ -44,7 +44,8 @@ namespace CarDriving
 
         protected bool CheckCrossing(Point p)
         {
-            if (Position.X + Width < p.X || Position.X > p.X) return false;
+            if (Position.X + Width < p.X || Position.X > p.X) 
+                return false;
             return Position.Y + Height >= p.Y && Position.Y <= p.Y;
         }
 

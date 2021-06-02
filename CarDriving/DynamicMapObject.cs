@@ -54,7 +54,7 @@ namespace CarDriving
                         DirectionNow = Direction.Right;
                         break;
                     }
-                case (int)Direction.Right:
+                case Direction.Right:
                     {
                         DirectionNow = Direction.Left;
                         break;
